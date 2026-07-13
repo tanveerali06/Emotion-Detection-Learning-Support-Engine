@@ -3,61 +3,48 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 
 
-# Load environment variables
 load_dotenv()
 
-
-# Get Gemini API Key
 API_KEY = os.getenv("GEMINI_API_KEY")
 
-
-# Configure Gemini
 genai.configure(api_key=API_KEY)
 
 
-# Select Gemini model
-model = genai.GenerativeModel(
-    "gemini-1.5-flash"
-)
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 
 def generate_learning_support(problem, emotion):
-    """
-    Generates personalized learning guidance
-    based on student's problem and emotion.
-    """
 
     prompt = f"""
-    You are an AI Learning Support Assistant.
+You are an AI Learning Support Assistant.
 
-    Student Emotion:
-    {emotion}
+Student Emotion: {emotion}
 
-    Student Problem:
-    {problem}
+Student Problem: {problem}
 
-    Provide:
-    1. Empathetic response
-    2. Explanation strategy
-    3. Learning tips
-    4. Next steps
+Provide:
+1. Empathetic response
+2. Simple explanation
+3. Learning tips
+4. Next steps
 
-    Keep the response simple and motivating.
-    """
+Keep the response motivating and easy to understand.
+"""
 
+    try:
+        response = model.generate_content(prompt)
+        return response.text
 
-    response = model.generate_content(prompt)
-
-    return response.text
-
+    except Exception:
+        return (
+            f"I understand you are feeling {emotion}.\n\n"
+            "Learning Tips:\n"
+            "- Break the topic into smaller concepts.\n"
+            "- Practice with simple examples.\n"
+            "- Revise the basics and try again."
+        )
 
 
 def regenerate_response(problem, emotion):
-    """
-    Generates a new response when user requests regeneration.
-    """
 
-    return generate_learning_support(
-        problem,
-        emotion
-    )
+    return generate_learning_support(problem, emotion)
