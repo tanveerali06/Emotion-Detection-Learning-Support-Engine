@@ -1,19 +1,140 @@
+from src.dashboard import emotion_chart, confidence_chart
 import streamlit as st
-import google.generativeai as genai
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
+from src.emotion_detector import predict_emotion
+from src.gemini_helper import generate_learning_support
+from src.csv_logger import save_interaction
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
+# Page configuration
+st.set_page_config(
+    page_title="Emotion Detection & Learning Support Engine",
+    page_icon="😊",
+    layout="wide"
+)
+
+
+# Session state
+if "history" not in st.session_state:
+    st.session_state.history = []
+
+
+# Title
 st.title("😊 Emotion Detection & Learning Support Engine")
 
-user_input = st.text_area("Describe your learning problem")
+st.write(
+    "AI-powered platform that detects student emotions "
+    "and provides personalized learning guidance."
+)
 
-if st.button("Get AI Support"):
-    model = genai.GenerativeModel("gemini-3.5-flash")
-    response = model.generate_content(
-        f"A student says: {user_input}. Give supportive learning advice."
+
+# User input section
+st.subheader("📚 Describe your learning problem")
+
+problem = st.text_area(
+    "Enter your study challenge:",
+    placeholder="Example: I don't understand recursion and I feel stuck."
+)
+
+
+# Button
+if st.button("Analyze Emotion"):
+
+    if problem.strip() == "":
+        st.warning("Please enter your learning problem.")
+
+    else:
+
+        # Emotion detection
+        result = predict_emotion(problem)
+
+        emotion = result["emotion"]
+        confidence = result["confidence"]
+
+
+        # Gemini response
+        ai_response = generate_learning_support(
+            problem,
+            emotion
+        )
+
+
+        # Save history
+        save_interaction(
+            problem,
+            emotion,
+            confidence,
+            ai_response
+        )
+
+
+        # Store session
+        st.session_state.history.append(
+            {
+                "problem": problem,
+                "emotion": emotion,
+                "response": ai_response
+            }
+        )
+
+
+        # Display result
+
+        st.success("Emotion detected successfully!")
+
+
+        st.subheader("😊 Detected Emotion")
+
+        st.info(emotion)
+
+
+        st.subheader("📊 Confidence Scores")
+
+        st.json(confidence)
+
+
+        st.subheader("📈 Emotion Confidence Visualization")
+
+        chart = confidence_chart(confidence)
+
+        if chart:
+            st.plotly_chart(chart)
+
+
+        st.subheader("🤖 AI Learning Support")
+
+        st.write(ai_response)
+
+
+
+# History section
+
+st.divider()
+
+st.subheader("📜 Previous Sessions")
+st.subheader("📊 Overall Emotion Analytics")
+
+history_chart = emotion_chart()
+
+if history_chart:
+    st.plotly_chart(history_chart)
+
+
+for item in st.session_state.history:
+
+    st.write(
+        "Problem:",
+        item["problem"]
     )
-    st.success(response.text)
+
+    st.write(
+        "Emotion:",
+        item["emotion"]
+    )
+
+    st.write(
+        "Response:",
+        item["response"]
+    )
+
+    st.divider()
