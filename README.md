@@ -194,6 +194,10 @@ streamlit run app.py
 
 Watch the complete demonstration of the **Emotion Detection Learning Support Engine** below.
 
+## 🌐 Live Application
+
+👉 **Launch the App:** https://emotion-detection-learning-support-engine-22ycqnfwuuwhlgka9sh8.streamlit.app
+
 ### ▶️ Demo Video
 
 🔗 **Google Drive:**  
