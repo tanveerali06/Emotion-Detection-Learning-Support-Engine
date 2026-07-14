@@ -212,11 +212,40 @@ The system successfully detected emotions and generated learning support respons
 - Integration with Learning Management Systems.
 
 ---
+---
 
-# 👨‍💻 Author
+# 👨‍💼 Project Team
 
-**Tanveer Ali**
+This project was successfully developed by the following team members as part of the academic mini project.
 
+### 🏆 Team Lead
+
+**Syed Tanveer Ali**  
+📧 tnvrlsyed@gmail.com
+
+---
+
+### 👨‍💻 Team Members
+
+**Yenugupalli Akshay**  
+📧 y.akshay9618563877@gmail.com
+
+**Lekha Sanjana Velagala**  
+📧 velagala.lekhasanjana28@gmail.com
+
+**Krishna Manohar Mahalakshmi Varma Sangani**  
+📧 sanganikrishnamanohar@gmail.com
+
+**Sivanandeeswa Tanala**  
+📧 sivatanala@gmail.com
+
+---
+
+# 👨‍🎓 Developed By
+**Syed Tanveer Ali**
+**Emotion Detection Learning Support Engine**  
+Department of Computer Science & Engineering  
+Ideal Institute of Technology
 B.Tech Computer Science Engineering
 
 ---
