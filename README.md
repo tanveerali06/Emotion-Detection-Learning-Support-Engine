@@ -174,16 +174,20 @@ streamlit run app.py
 # Application Screenshots
 
 ## Home Interface
-![Home Interface](assets/home_screen.png)
+
+![Home Interface](assets/home_screen.png.png)
 
 ## Emotion Detection Result
-![Emotion Detection Result](assets/emotion_result.png)
+
+![Emotion Detection Result](assets/emotion_result.png.png)
 
 ## Confidence Analysis
-![Confidence Analysis](assets/dashboard.png)
+
+![Confidence Analysis](assets/dashboard.png.png)
 
 ## Session History Dashboard
-![Session History Dashboard](assets/session_history_dashboard.png)
+
+![Session History Dashboard](assets/session_history_dashboard.png.png)
 ---
 
 # 🧪 Testing
