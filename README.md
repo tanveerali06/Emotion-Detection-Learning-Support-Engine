@@ -262,12 +262,17 @@ This project was successfully developed by the following team members as part of
 ---
 
 # 👨‍🎓 Developed By
-**Syed Tanveer Ali**
+
+**Syed Tanveer Ali**  
+**Yenugupalli Akshay**  
+**Lekha Sanjana Velagala**  
+**Krishna Manohar Mahalakshmi Varma Sangani**  
+**Sivanandeeswa Tanala**
+
 **Emotion Detection Learning Support Engine**  
 Department of Computer Science & Engineering  
-Ideal Institute of Technology
+Ideal Institute of Technology  
 B.Tech Computer Science Engineering
-
 ---
 
 # 📄 License
