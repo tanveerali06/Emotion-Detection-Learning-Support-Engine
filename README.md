@@ -190,6 +190,22 @@ streamlit run app.py
 ![Session History Dashboard](assets/session_history_dashboard.png.png)
 ---
 
+# 🎥 Project Demonstration
+
+Watch the complete demonstration of the **Emotion Detection Learning Support Engine** below.
+
+### ▶️ Demo Video
+
+🔗 **Google Drive:**  
+https://drive.google.com/file/d/1whSEAcSuh3qWtETURKjtS_2z0Z44KRfc/view?usp=drivesdk
+
+The demonstration includes:
+- Home Interface
+- Emotion Detection
+- AI Learning Support
+- Confidence Analysis
+- Session History Dashboard
+
 # 🧪 Testing
 
 The application was tested with different student learning inputs:
